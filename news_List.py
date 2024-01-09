@@ -1,5 +1,10 @@
 school_urls = [
-    # "https://www.abss.k12.nc.us/",
+
+    # "https://www.yanceync.net/"
+"    https://www.wral.com/weather/closings/"   
+ ]
+school_urls = [
+        # "https://www.abss.k12.nc.us/",
     # "https://www.alleghany.k12.nc.us/",
     # "https://ansonschools.org/District/",
     # "https://www.asheschools.org/",
@@ -96,6 +101,6 @@ school_urls = [
     # "https://www.wilkescountyschools.org/",
     # "https://www.wilsonschoolsnc.net/",
     # "https://yec.yadkin.k12.nc.us/",
-    # "https://www.yanceync.net/"
-"    https://www.wral.com/weather/closings/"   
- ]
+    # "https://www.yanceync.net/",
+    "https://www.wral.com/weather/closings/"  # Removed extra space at the beginning and trailing whitespace
+]

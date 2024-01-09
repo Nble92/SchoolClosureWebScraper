@@ -4,7 +4,7 @@ class SchoolClosureDAO:
         self.title = ""
         self.status = ""
 
-    def set_data(self, url, title,status):
+    def set_data(self, url, title, status):  # Corrected space after comma
         self.url = url
         self.title = title
         self.status = status
@@ -18,4 +18,4 @@ class SchoolClosureDAO:
     def get_status(self):
         return self.status
 
-                
+# Ensure there's a newline here at the end of the file

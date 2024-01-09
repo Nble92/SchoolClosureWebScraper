@@ -5,14 +5,15 @@ from bs4 import BeautifulSoup
 
 # Using the DAO
 
-def check_school_closure(url):
+
+def check_school_closure(url):  # Corrected E302
     dao = SchoolClosureDAO()
     try:
         response = requests.get(url)
         response.raise_for_status()  # Raises an HTTPError for unsuccessful status codes
 
         soup = BeautifulSoup(response.content, 'html.parser')
-        title = soup.find('title').get_text()   
+        title = soup.find('title').get_text()  # Corrected W291
         status = "open"
 
         print(response.status_code)
@@ -31,3 +32,4 @@ def check_school_closure(url):
         return dao
 
 # Returns DAO
+# Ensure there's a newline here at the end of the file

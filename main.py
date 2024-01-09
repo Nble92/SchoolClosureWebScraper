@@ -10,20 +10,15 @@ def __init__():
     scrpr = scraper
     districts = []
 
-
     for url in distList:
         distObj = scrpr.check_school_closure(url)
 
         print("Now Scraping " + url + "!")
-        # Example Usage
         if distObj:
             print(distObj.__dict__)
             print("\n")
             districts.append((distObj.url, distObj.title, distObj.status))
-            # Serialize the district object for database storage
-            # Assuming distObj can be converted to a dictionary
 
-            # Store in the database
     try:
         query = "INSERT INTO SchoolClosures (URL,DistrictName,Status) VALUES (%s,%s,%s);"
         db.cursor.executemany(query, (districts))
@@ -33,11 +28,9 @@ def __init__():
         db.conn.rollback()
         print(f"Error storing data: {e}")
         
-    # Close the database connection
     db.close_connection()
 
-__init__()
+__init__()  # Corrected E305
 
 
-
-        
+# Ensure there's a newline here at the end of the file
