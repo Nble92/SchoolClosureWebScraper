@@ -1,16 +1,11 @@
 class NewsDAO:
     def __init__(self):
-        self.url = ""
         self.title = ""
         self.status = ""
 
-    def set_data(self, url, title, status):  # Added space after comma
-        self.url = url
+    def set_data(self, title, status):  # Added space after comma
         self.title = title
         self.status = status
-
-    def get_url(self):
-        return self.url
 
     def get_title(self):
         return self.title
@@ -19,6 +14,3 @@ class NewsDAO:
         return self.status
 
 # Ensure there's a newline here at the end of the file
-
-
-                

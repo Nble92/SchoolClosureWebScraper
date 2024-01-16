@@ -8,6 +8,26 @@ app = Flask(__name__)
 def home():
     return 'Hello'
 
+@app.route('/store', methods=['GET'])  # Corrected E302
+def get():
+    try:
+        query = "SELECT * FROM closures"
+        db.cursor.execute(query)
+        results = db.cursor.fetchall()  # Fetch the results
+
+        # Convert the results to a list of dicts (or similar, depending on your data structure)
+        closures = []
+        for row in results:
+            closures.append({
+                'Organization': row[1],
+                'Status': row[2],
+                # Add other columns as needed
+            })
+
+        return jsonify(closures)  # Return the data in JSON format
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500  # Return an error message in case of an exception
 
 @app.route('/store', methods=['POST'])  # Corrected E302
 def store():
@@ -19,7 +39,7 @@ def store():
 
         db.get_db_connection()
         try:
-            query = "INSERT INTO SchoolClosures (URL, DistrictName, Status) VALUES (%s, %s, %s);"  # Corrected E231
+            query = "INSERT INTO SchoolClosures (URL, Dis trictName, Status) VALUES (%s, %s, %s);"  # Corrected E231
             db.cursor.execute(query, (url, district_name, district_status))  # Corrected E225
 
             # Commit the transaction  # Corrected E117
